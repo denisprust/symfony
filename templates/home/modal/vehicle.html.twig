@@ -1,0 +1,57 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-vehicle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ vehicle.description }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="modal-vehicle">
+                    <input type="hidden" name="vehicle_id" id="vehicle_id" value="">
+                    <div class="row">
+                        <div class="col-12 text-center m-auto">
+                            <img class="card-img-top m-auto" width="250px" height="250px" src="{{ asset('build/global/logo.png') }}" alt="Card image cap">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <label for="description"><b>Descrição:</b></label>
+                            <span>{{ vehicle.description }}</span>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <label for="brand"><b>Marca:</b></label>
+                            <span>{{ vehicle.brand }}</span>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-xs-12 col-md-6">
+                            <label for="year"><b>Ano de Fabricação:</b></label>
+                            <span>{{ vehicle.year }}</span>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <label for="model_year"><b>Ano do Modelo:</b></label>
+                            <span>{{ vehicle.modelYear }}</span>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-xs-12 col-md-6">
+                            <label for="city"><b>Cidade:</b></label>
+                            <span>{{ vehicle.city }}</span>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <label for="price"><b>Preço:</b></label>
+                            <span>R$ <span class="money">{{ vehicle.price }}</span></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fa fa-times"></i> Fechar</button>
+                <button type="button" class="btn btn-outline-success" onclick="Vehicles.openModalVehicle(this)"><i class="fa fa-phone"></i> Entrar em Contato</button>
+            </div>
+        </div>
+    </div>
+</div>

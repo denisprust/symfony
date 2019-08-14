@@ -1,0 +1,67 @@
+{% extends "base.html.twig" %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">Home</li>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('homeCss') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('home') }}
+{% endblock %}
+
+{% block body %}
+    {% include 'home/aside.html.twig' %}
+    <div class="container-fluid bg-light pb-5">
+        <div class="row pt-3">
+            <div class="col-6 col-md-10">
+                <button class="btn btn-outline-info float-left" id="btn-filter" onclick="Home.showAside(this)" title="Filtrar">
+                    <i class="fa fa-filter cursor-pointer" ></i>
+                    Filtrar
+                </button>
+            </div>
+            <div class="col-6 col-md-2">
+                <select class="form-control float-right" onchange="submitForm()" name="order" id="order">
+                    <option value="1" selected>Relevância</option>
+                    <option value="2">Menor Valor</option>
+                    <option value="3">Maior Valor</option>
+                </select>
+            </div>
+        </div>
+        {% if nRows == 0 %}
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="alert alert-info text-center">
+                        Nenhum veículo encontrado com os filtros selecionados.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    Selecionados alguns modelos para você:
+                    <hr>
+                </div>
+            </div>
+        {% endif %}
+        {% if cars %}
+            <div class="row">
+                {% for car in cars %}
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card mt-5 ml-auto mr-auto" style="min-width:200px;max-width: 18rem;">
+                            <img class="card-img-top" src="{{ asset('build/global/logo.png') }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ car.description }}</h5>
+                                <p class="card-text">R$ <span class="money">{{ car.price }}</span></p>
+                                <a href="#" class="btn btn-outline-info" data-id="{{ car.id }}" onclick="Home.openModalVehicle(this)">Ver mais</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock body %}

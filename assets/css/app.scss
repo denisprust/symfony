@@ -1,0 +1,29 @@
+@import '../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css';
+@import '../../vendor/components/font-awesome/scss/fontawesome.scss';
+@import '../../vendor/components/font-awesome/scss/regular';
+@import '../../vendor/components/font-awesome/scss/solid';
+@import '../../node_modules/sweetalert2/dist/sweetalert2.min.css';
+
+h1 {
+    text-align: center;
+}
+
+body {
+    background-color: #fff;
+}
+
+div.container.filter {
+    height: 150px;
+}
+
+div.main {
+    margin-top: 20px;
+}
+
+.logo-navbar {
+    width: 32px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

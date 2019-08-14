@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+
+
+
+{% block body %}
+<div class="container">
+    <br>  <p class="text-center">Com o ... suas compras e vendas de veículos ficam mais fáceis. ;)</p>
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <hr>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <aside class="col-sm-4 offset-sm-4">
+            <div class="card">
+{#                {{ form(form) }}#}
+                <article class="card-body">
+                    <a href="/cadastrar" class="float-right btn btn-outline-primary">Cadastre-se</a>
+                    <h4 class="card-title mb-4 mt-1">Entrar</h4>
+                    <hr>
+                    {% if messageValidation %}
+                        <p class="text-{{ messageStatus }} text-center">{{messageValidation}}</p>
+                    {% endif %}
+                    <form method="post" action="{{ path('login') }}">
+{#                        <input type="text" name="_username" value="{{ last_username }}">#}
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input type="email" name="mail" class="form-control" placeholder="E-mail">
+                            </div> <!-- input-group.// -->
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                </div>
+                                <input type="password" name="password" class="form-control" placeholder="******">
+                            </div> <!-- input-group.// -->
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"> Entrar  </button>
+                        </div> <!-- form-group// -->
+{#                        <p class="text-center"><a href="#" class="btn">Esqueceu sua senha??</a></p>#}
+                    </form>
+                </article>
+            </div> <!-- card.// -->
+
+        </aside> <!-- col.// -->
+    </div> <!-- row.// -->
+
+</div>
+<!--container end.//-->
+{% endblock %}

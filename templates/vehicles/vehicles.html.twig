@@ -1,0 +1,53 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('vehicles') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('vehicles') }}
+{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Meus Veículos</li>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid bg-light pb-5">
+        <div class="row pt-2">
+            <div class="col-12">
+                <button type="button" class="btn btn-outline-success float-right" onclick="Vehicles.openModalVehicle()"><i class="fa fa-plus"></i> Novo</button>
+            </div>
+        </div>
+        {% if vehicles %}
+            <div class="row">
+                {% for vehicle in vehicles %}
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card mt-5 ml-auto mr-auto" style="min-width:200px;max-width: 18rem;">
+                            <img class="card-img-top" src="{{ asset('build/global/logo.png') }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ vehicle.description }}</h5>
+                                <p class="card-text">R$ <span class="money">{{ vehicle.price }}</span></p>
+                                <a href="#" class="btn btn-outline-info" onclick="Vehicles.editVehicle(this)" data-id="{{ vehicle.id }}">Editar</a>
+                                <a href="#" class="btn btn-outline-danger" onclick="Vehicles.deleteVehicle(this)" data-id="{{ vehicle.id }}">Excluir</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="alert alert-warning w-100 text-center">
+                        Nenhum veículo encontrado.
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <div id="modal-vehicle-content"></div>
+{% endblock body %}
+

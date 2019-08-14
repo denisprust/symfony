@@ -1,0 +1,84 @@
+{% extends "base.html.twig" %}
+{% block title %}Cadastro{% endblock %}
+{% block body %}
+    <div class="container">
+        <br>  <p class="text-center">Com o PrustCar suas compras e vendas de carros ficam mais fáceis. ;)</p>
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <aside class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+                <div class="card">
+                    <article class="card-body">
+                        <a href="/login" class="float-right btn btn-outline-primary">Entrar</a>
+                        <h4 class="card-title mb-4 mt-1">Cadastrar</h4>
+                        <hr>
+                        {% if messageValidation %}
+                            <p class="text-{{ messageStatus }} text-center" id="message-validation">{{messageValidation}}</p>
+                        {% endif %}
+                        {{ form_start(form) }}
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        {{ form_row(form.username) }}
+                                    </div> <!-- form-group// -->
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        {{ form_row(form.mail) }}
+                                    </div> <!-- form-group// -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        {{ form_row(form.name) }}
+                                    </div> <!-- form-group// -->
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        {{ form_row(form.phone) }}
+                                    </div> <!-- form-group// -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-6">
+                                    <div class="form-group">
+                                        {{ form_row(form.dateOfBirth) }}
+                                    </div> <!-- form-group// -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            {{ form_row(form.password) }}
+                                        </div> <!-- input-group.// -->
+                                    </div>
+                                </div> <!-- form-group// -->
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            {{ form_row(form.password_repeat) }}
+                                        </div> <!-- input-group.// -->
+                                    </div> <!-- form-group// -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <button type="submit" id="btn-submit" value="1" name="btn-submit" class="btn btn-primary btn-block">Enviar</button>
+                                    </div> <!-- form-group// -->
+                                </div>
+                            </div>
+                        {{ form_end(form) }}
+                    </article>
+                </div> <!-- card.// -->
+            </aside> <!-- col.// -->
+        </div> <!-- row.// -->
+
+    </div>
+    <!--container end.//-->
+{% endblock %}

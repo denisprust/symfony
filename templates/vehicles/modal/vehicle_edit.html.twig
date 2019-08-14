@@ -1,0 +1,57 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-vehicle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Veículo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-vehicle">
+                    <input type="hidden" name="id" id="id" value="{{ vehicle.id }}">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <label for="description">Descrição:</label>
+                            <input type="text" class="form-control" id="description" name="description" value="{{ vehicle.description }}" required>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <label for="brand">Marca:</label>
+                            <input type="text" class="form-control" id="brand" name="brand" value="{{ vehicle.brand }}" required>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-xs-12 col-md-6">
+                            <label for="year">Ano de Fabricação:</label>
+                            <input type="number" maxlength="4" class="form-control" id="year" name="year" value="{{ vehicle.year }}" required>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <label for="model_year">Ano do Modelo:</label>
+                            <input type="number" maxlength="4" class="form-control" id="model_year" name="model_year" value="{{ vehicle.modelYear }}" required>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-xs-12 col-md-6">
+                            <label for="city">Cidade:</label>
+                            <input type="text" class="form-control" id="city" name="city" value="{{ vehicle.city }}" required>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <label for="price">Preço:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" class="form-control money" id="price" name="price" value="{{ vehicle.price }}" required>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
+                <button type="button" class="btn btn-outline-success" onclick="Vehicles.saveVehicle(this)"><i class="fa fa-check"></i> Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

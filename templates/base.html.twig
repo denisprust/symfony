@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    {% if ignoreTemplate is not defined or ignoreTemplate == false %}
+        {% include 'navbar.html.twig' %}
+    {% endif %}
+    <body>
+        <div class="main">
+            <nav aria-label="breadcrumb" style="background-color: transparent;">
+                <ol class="breadcrumb" style="background-color: transparent;">
+                    {% block breadcrumb %}{% endblock %}
+                </ol>
+            </nav>
+            {% block body %}{% endblock %}
+        </div>
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('mask') }}
+        {% endblock %}
+    </body>
+{#    {% include 'footer.html.twig' %}#}
+</html>

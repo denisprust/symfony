@@ -1,0 +1,51 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors~app~home~mask~vehicles.js",
+        "/build/vendors~app~home~vehicles.js",
+        "/build/vendors~app~mask.js",
+        "/build/vendors~app.js",
+        "/build/app.js"
+      ],
+      "css": [
+        "/build/vendors~app.css",
+        "/build/app.css"
+      ]
+    },
+    "home": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors~app~home~mask~vehicles.js",
+        "/build/vendors~app~home~vehicles.js",
+        "/build/home.js"
+      ]
+    },
+    "vehicles": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors~app~home~mask~vehicles.js",
+        "/build/vendors~app~home~vehicles.js",
+        "/build/vendors~vehicles.js",
+        "/build/vehicles.js"
+      ]
+    },
+    "mask": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors~app~home~mask~vehicles.js",
+        "/build/vendors~app~mask.js",
+        "/build/mask.js"
+      ]
+    },
+    "homeCss": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/homeCss.css"
+      ]
+    }
+  }
+}
