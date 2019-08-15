@@ -4,3 +4,108 @@
   width:300px;
   box-shadow: -3px 4px 7px 0px;
 }
+
+/* CSS menu flutuante */
+.settings {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  left: auto;
+  width: 274px;
+  background-color: #fff;
+  backface-visibility: hidden;
+  border: 1px solid #dde6e9;
+  margin-right: -276px;
+  z-index: 999;
+  transition: margin .3s cubic-bezier(1,0,0,1)
+}
+
+.settings.show {
+  margin-right: 0;
+  border-radius: 4px;
+  border-top-left-radius: 0;
+  box-shadow: 0px 0px 8px #00000047;
+}
+
+.settings-inner {
+  position: relative
+}
+
+.settings-inner .settings-ctrl {
+  position: absolute;
+  top: -1px;
+  left: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border: 1px solid #dde6e9;
+  border-right: 0;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px 0 0 3px
+}
+
+.settings-inner .settings-ctrl>em {
+  line-height: 49px;
+  font-size: 20px;
+  color: #3a3f51
+}
+
+.settings-content {
+  padding: 10px;
+  padding-bottom: 0;
+}
+.clearfix ul{
+  padding: 0px;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+.clearfix ul li{
+  list-style-type: none;
+  padding: 4px 5px;
+  transition: background 1s;
+  /* border-top: 1px solid #ccc; */
+}
+.clearfix ul{
+  cursor: pointer;
+  max-height: calc(100vh - 136px);
+  min-height: calc(100vh - 160px);
+  //overflow-y: auto;
+  padding-bottom: 10px;
+}
+
+.clearfix ul li:active{
+  background-color: #f3f3f3;
+  background-size: 100%;
+  transition: background 0s;
+}
+.clearfix ul li ul li{
+  padding-left: 5px;
+  background-color: #f3f3f3;
+}
+#template-conteudo{
+  resize: none;
+  height: calc(100vh - 200px);
+  text-align: justify;
+}
+
+.clearfix ul::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.clearfix ul::-webkit-scrollbar
+{
+  width: 9px;
+  background-color: #F5F5F5;
+}
+
+.clearfix ul::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.3);
+  background-color: #ddd;
+}
+/* FIM CSS menu flutuante */

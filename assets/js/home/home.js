@@ -11,20 +11,10 @@ Home = {
         $(document).on('hidden.bs.modal', '#modal-contact', function () {
             $('#modal-vehicle').modal('show');
         });
-    },
-    hideAside: function(elem) {
-        let aside = $('#aside-filters');
-        let btn_filter = $('#btn-filter');
 
-        aside.fadeOut();
-        btn_filter.fadeIn();
-    },
-    showAside: function(elem) {
-        let aside = $('#aside-filters');
-        let btn_filter = $('#btn-filter');
-
-        btn_filter.fadeOut();
-        aside.fadeIn();
+        $(document).on('click', '.settings-ctrl', function () {
+            $('.settings').toggleClass('show');
+        })
     },
     openModalVehicle: function(elem) {
         let params = {vehicle_id: $(elem).data('id')};

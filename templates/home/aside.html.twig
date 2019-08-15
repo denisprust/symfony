@@ -1,62 +1,79 @@
-<aside id="aside-filters" style="position:relative;display: none;">
-    <div id="container-filter-aside" class="float-left bg-light p-4 mr-3" >
-        <form id="form-filter" method="POST" action="/home">
-            <div class="row">
-                <div class="col-12 text-right">
-                    <i class="fa fa-chevron-left cursor-pointer" title="Esconder Filtros" onclick="Home.hideAside(this)"></i>
-                </div>
+<div class="settings show">
+    <div class="settings-inner">
+        <div class="settings-ctrl"><em class="fa fa-filter"></em></div>
+        <div class="settings-content">
+            <div style="margin: 7px 0px 14px;"><b>Filtros</b></div>
+            <div class="clearfix">
+                <form id="form-filter" method="POST" action="/home">
+                    <ul>
+                        <li class="action-clipboard">
+                            <div class="row p-2">
+                                <div class="col-12">
+                                    <label>Descrição</label>
+                                    <div class="input-group">
+                                        <input type="text" name="description" class="form-control" value="{{ form.description }}" placeholder="Ex.: Jetta TSI">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-dark"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="action-clipboard">
+                            <div class="row p-2">
+                                <div class="col-12">
+                                    <label>Ano</label>
+                                    <div class="input-group">
+                                        <input type="number" name="year1" class="form-control" value="{{ form.year1 }}" placeholder="De">
+                                        <input type="number" name="year2" class="form-control" value="{{ form.year2 }}" placeholder="Até">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-dark"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="action-clipboard">
+                            <div class="row p-2">
+                                <div class="col-12">
+                                    <label>Marca</label>
+                                    <div class="input-group">
+                                        <input type="text" name="brand" class="form-control" value="{{ form.brand }}" placeholder="Ex.: Chevrolet...">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-dark"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="action-clipboard">
+                            <div class="row p-2">
+                                <div class="col-12">
+                                    <label>Preço</label>
+                                    <div class="input-group">
+                                        <input type="number" name="price1" class="form-control" value="{{ form.price1 }}" placeholder="De">
+                                        <input type="number" name="price2" class="form-control" value="{{ form.price2 }}" placeholder="Até">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-dark"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="action-clipboard">
+                            <div class="row mt-2">
+                                <div class="col-6 text-center m">
+                                    <button type="reset" onclick="" class="btn btn-outline-dark"><i class="fa fa-eraser"></i> Limpar</button>
+                                </div>
+                                <div class="col-6 text-center m">
+                                    <button type="submit" onclick="" class="btn btn-outline-dark"><i class="fa fa-check"></i> Filtrar</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
             </div>
-            <div class="row mb-2">
-                <div class="col-12">
-                    <label>Descrição</label>
-                    <div class="input-group">
-                        <input type="text" name="description" class="form-control" value="{{ form.description }}" placeholder="Ex.: Jetta TSI">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-dark"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-12">
-                    <label>Marca</label>
-                    <div class="input-group">
-                        <input type="text" name="brand" class="form-control" value="{{ form.brand }}" placeholder="Ex.: Chevrolet...">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-dark"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-12">
-                    <label>Ano</label>
-                    <div class="input-group">
-                        <input type="number" name="year1" class="form-control" value="{{ form.year1 }}" placeholder="De">
-                        <input type="number" name="year2" class="form-control" value="{{ form.year2 }}" placeholder="Até">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-dark"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <label>Preço</label>
-                    <div class="input-group">
-                        <input type="number" name="price1" class="form-control" value="{{ form.price1 }}" placeholder="De">
-                        <input type="number" name="price2" class="form-control" value="{{ form.price2 }}" placeholder="Até">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-dark"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-12 text-center m">
-                    <button type="reset" onclick="" class="btn btn-outline-dark"><i class="fa fa-eraser"></i> Limpar</button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
-</aside>
+</div>
