@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Vehicle;
 use Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension;
 use http\Exception;
@@ -106,33 +107,23 @@ class VehicleController extends AbstractController {
                 if (!$vehicle)
                     throw new \Exception('Veículo não encontrado.');
 
-                $vehicle->setBrand($request->get('brand'));
-                $vehicle->setYear($request->get('year'));
-                $vehicle->setModelYear($request->get('model_year'));
-                $vehicle->setDescription($request->get('description'));
-                $vehicle->setPrice($price);
-                $vehicle->setUserId($username->getId());
-                $vehicle->setCity($request->get('city'));
                 $vehicle->setUpdateDate(new \DateTime('now'));
 
-                $entityManager->persist($vehicle);
-                $entityManager->flush();
-
             } else {
-
                 $vehicle = new Vehicle();
-                $vehicle->setBrand($request->get('brand'));
-                $vehicle->setYear($request->get('year'));
-                $vehicle->setModelYear($request->get('model_year'));
-                $vehicle->setDescription($request->get('description'));
-                $vehicle->setPrice($price);
-                $vehicle->setUserId($username->getId());
-                $vehicle->setCity($request->get('city'));
                 $vehicle->setRegistrationDate(new \DateTime('now'));
-
-                $entityManager->persist($vehicle);
-                $entityManager->flush();
             }
+
+            $vehicle->setBrand($request->get('brand'));
+            $vehicle->setYear($request->get('year'));
+            $vehicle->setModelYear($request->get('model_year'));
+            $vehicle->setDescription($request->get('description'));
+            $vehicle->setPrice($price);
+            $vehicle->setUserId($username->getId());
+            $vehicle->setCity($request->get('city'));
+
+            $entityManager->persist($vehicle);
+            $entityManager->flush();
 
             $arrayResponse = [
                 'message' => 'Veículo salvo com sucesso!',
@@ -160,28 +151,18 @@ class VehicleController extends AbstractController {
     }
 
     /**
+     * @param Request $request
      * @return Response
-     * @Route("novo-carro")
+     * @Route("vehicles/get-modal-contact")
      */
-    public function newVehicle() {
-        $ge = $this->getDoctrine()->getManager();
+    public function getModalContact(Request $request) {
+        $entityManager = $this->getDoctrine()->getManager();
+        $user = $entityManager->getRepository(User::class)->find($request->get('user'));
 
-        $vehicle = new Vehicle();
-        $vehicle->setBrand('Fiat');
-        $vehicle->setYear(2011);
-        $vehicle->setModelYear(2011);
-        $vehicle->setDescription('Bravo Absolute');
-        $vehicle->setPrice('35.900');
-        $vehicle->setUserId(1);
-        $vehicle->setCity('Indaial');
-        $vehicle->setRegistrationDate();
-
-        $ge->persist($vehicle);
-        $ge->flush();
-
-        return new Response('O veículo '.$vehicle->getDescription(). ' foi salvo com sucesso');
+        return $this->render('home/modal/contact.html.twig', [
+            'user' => $user
+        ]);
     }
-
 
     /**
      * @param Request $request

@@ -35,10 +35,4 @@ class UserFixture extends Fixture
         $manager->flush();
     }
 
-    /**
-     * @Route("logout", name="logout")
-     */
-    public function logout() {
-
-    }
 }

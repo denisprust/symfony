@@ -11,6 +11,7 @@
 
 {% block javascripts %}
     {{ parent() }}
+
     {{ encore_entry_script_tags('home') }}
 {% endblock %}
 
@@ -24,30 +25,37 @@
                     Filtrar
                 </button>
             </div>
-            <div class="col-6 col-md-2">
-                <select class="form-control float-right" onchange="submitForm()" name="order" id="order">
-                    <option value="1" selected>Relevância</option>
-                    <option value="2">Menor Valor</option>
-                    <option value="3">Maior Valor</option>
-                </select>
-            </div>
         </div>
         {% if nRows == 0 %}
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="alert alert-info text-center">
-                        Nenhum veículo encontrado com os filtros selecionados.
+            {% if cars %}
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="alert alert-info text-center">
+                            Nenhum veículo encontrado com os filtros selecionados.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    Selecionados alguns modelos para você:
-                    <hr>
+                <div class="row">
+                    <div class="col-12">
+                        Selecionados alguns modelos para você:
+                        <hr>
+                    </div>
                 </div>
-            </div>
+            {% else %}
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="alert alert-info text-center">
+                            Nenhum veículo encontrado.
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         {% endif %}
         {% if cars %}
+            {% if nRows == 0 %}
+
+
+            {% endif %}
             <div class="row">
                 {% for car in cars %}
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">

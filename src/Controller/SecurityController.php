@@ -23,4 +23,12 @@ class SecurityController extends AbstractController
             'ignoreTemplate' => true
         ]);
     }
+
+
+    /**
+     * @Route("security/logout", name="security/logout")
+     */
+    public function logout() {
+        $this->redirectToRoute('security/login.html.twig');
+    }
 }

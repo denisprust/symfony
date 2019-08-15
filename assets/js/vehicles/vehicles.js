@@ -10,8 +10,8 @@ Vehicles = {
             text: 'Tem certeza de que deseja excluir este veículo?',
             type: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
             cancelButtonText: 'Cancelar',
             confirmButtonText: 'Sim'
         }).then((result) => {
@@ -160,5 +160,6 @@ Vehicles = {
     initMasks: function () {
         $('.money').mask('000.000.000.000.000,00', {reverse: true});
         $('[name=year],[name=model_year]').mask('0000');
-    }
+    },
+
 };

@@ -57,7 +57,7 @@ class RegistrationController extends AbstractController
 
                 $em->persist($user);
                 $em->flush();
-                return $this->redirectToRoute('app_login_loginview');
+                return $this->redirectToRoute('login');
             }
         }
 
