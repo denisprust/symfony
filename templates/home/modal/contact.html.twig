@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-vehicle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,19 +9,27 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="modal-vehicle">
-                    <input type="hidden" name="user_id" id="user_id" value="{{ user.id }}">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label for="description"><b>Mensagem:</b></label>
-                            <textarea name="message" id="message" class="form-control"></textarea>
+                <div class="container">
+                    <form id="form-modal-contact">
+                        <input type="hidden" name="user_id" id="user_id" value="{{ user.id }}">
+                        <div class="row">
+                            <div class="col-12">
+                                <span><b>Telefone para contato:</b> {{ user.phone }}</span>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <label for="description"><b>Mensagem:</b></label>
+                                <textarea name="message" id="message" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fa fa-times"></i> Fechar</button>
-                <button type="button" class="btn btn-outline-success" onclick="Vehicles.openModalContact(this)" data-user="{{ vehicle.userId }}"><i class="fa fa-phone"></i> Entrar em Contato</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
+                <button type="button" class="btn btn-outline-success" onclick="Home.enviarContato()" data-user="{{ user.id }}"><i class="fa fa-check"></i> Enviar</button>
             </div>
         </div>
     </div>

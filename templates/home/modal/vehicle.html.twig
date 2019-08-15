@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="modal-vehicle">
+                <form id="form-modal-vehicle">
                     <input type="hidden" name="vehicle_id" id="vehicle_id" value="">
                     <div class="row">
                         <div class="col-12 text-center m-auto">
@@ -17,31 +17,31 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-xs-12 col-sm-6">
                             <label for="description"><b>Descrição:</b></label>
                             <span>{{ vehicle.description }}</span>
                         </div>
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-xs-12 col-sm-6">
                             <label for="brand"><b>Marca:</b></label>
                             <span>{{ vehicle.brand }}</span>
                         </div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-xs-12 col-sm-6">
                             <label for="year"><b>Ano de Fabricação:</b></label>
                             <span>{{ vehicle.year }}</span>
                         </div>
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-xs-12 col-sm-6">
                             <label for="model_year"><b>Ano do Modelo:</b></label>
                             <span>{{ vehicle.modelYear }}</span>
                         </div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-xs-12 col-sm-6">
                             <label for="city"><b>Cidade:</b></label>
                             <span>{{ vehicle.city }}</span>
                         </div>
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-xs-12 col-sm-6">
                             <label for="price"><b>Preço:</b></label>
                             <span>R$ <span class="money">{{ vehicle.price }}</span></span>
                         </div>
@@ -50,7 +50,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fa fa-times"></i> Fechar</button>
-                <button type="button" class="btn btn-outline-success" onclick="Home.openModalContact(this)" data-user="{{ vehicle.userId }}"><i class="fa fa-phone"></i> Entrar em Contato</button>
+
+                {% if vehicle.userId != app.user.id %}
+                    <button type="button" class="btn btn-outline-success" onclick="Home.openModalContact(this)" data-user="{{ vehicle.userId }}"><i class="fa fa-phone"></i> Entrar em Contato</button>
+                {% endif %}
             </div>
         </div>
     </div>

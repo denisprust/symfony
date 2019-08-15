@@ -23,7 +23,7 @@ class Vehicle
 
     /**
      * @var string
-     * @ORM\Column(type="decimal", precision=7, scale=2)
+     * @ORM\Column(type="decimal", precision=15, scale=2)
      */
     private $price;
 

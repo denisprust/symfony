@@ -4,18 +4,14 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Entity\Vehicle;
-use Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension;
-use http\Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use function MongoDB\BSON\toJSON;
 
 class VehicleController extends AbstractController {
-
 
     /**
      * @return Response

@@ -3,6 +3,7 @@ const Swal = require('sweetalert2');
 
 Vehicles = {
     init: function () {
+        this.initMasks()
     },
     deleteVehicle: function (elem) {
         Swal.fire({
@@ -49,8 +50,6 @@ Vehicles = {
                 })
             }
         });
-
-
     },
     openModalVehicle: function () {
         $.ajax({
@@ -160,6 +159,5 @@ Vehicles = {
     initMasks: function () {
         $('.money').mask('000.000.000.000.000,00', {reverse: true});
         $('[name=year],[name=model_year]').mask('0000');
-    },
-
+    }
 };
